@@ -7,7 +7,7 @@ import ReviewContext from "./context/ReviewContext";
 import { useState } from "react";
 import Review from "./pages/Review";
 
-export default function App() {
+function ReviewProvider({ children }) {
   const initialReviewItems = [
     {
       url: "https://github.com/repo1",
@@ -40,6 +40,14 @@ export default function App() {
 
   return (
     <ReviewContext.Provider value={{ reviewItems, toggleReviewItem }}>
+      {children}
+    </ReviewContext.Provider>
+  );
+}
+
+export default function App() {
+  return (
+    <ReviewProvider>
       <Router>
         <Nav />
         <Routes>
@@ -48,6 +56,6 @@ export default function App() {
           <Route path="/review" element={<Review />} />
         </Routes>
       </Router>
-    </ReviewContext.Provider>
+    </ReviewProvider>
   );
 }
