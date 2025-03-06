@@ -5,7 +5,7 @@ export default function Review() {
   const { reviewItems, toggleReviewItem } = useContext(ReviewContext);
   return (
     <div>
-      <h1>review</h1>
+      <h1>to review</h1>
       <p>isReviewd: {reviewItems.filter((rI) => rI.isReviewed).length}</p>
       <div>
         <ul>
