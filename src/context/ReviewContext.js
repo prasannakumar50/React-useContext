@@ -1,9 +1,11 @@
 import { createContext } from "react";
-import { useState } from "react";
+import { useState, useContext } from "react";
 
 const ReviewContext = createContext();
 
-export default ReviewContext;
+const useReviewContext = () => useContext(ReviewContext);
+
+export default useReviewContext;
 
 export function ReviewProvider({ children }) {
   const initialReviewItems = [

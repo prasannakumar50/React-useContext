@@ -1,9 +1,8 @@
-import { useContext } from "react";
-import ReviewContext from "../context/ReviewContext";
 import "../styles.css";
+import useReviewContext from "../context/ReviewContext";
 
 export function Reporting() {
-  const { reviewItems } = useContext(ReviewContext);
+  const { reviewItems } = useReviewContext();
   return (
     <div className="app">
       <h1>status </h1>

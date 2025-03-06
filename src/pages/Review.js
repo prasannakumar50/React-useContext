@@ -1,8 +1,7 @@
-import { useContext } from "react";
-import ReviewContext from "../context/ReviewContext";
+import useReviewContext from "../context/ReviewContext";
 
 export default function Review() {
-  const { reviewItems, toggleReviewItem } = useContext(ReviewContext);
+  const { reviewItems, toggleReviewItem } = useReviewContext();
   return (
     <div>
       <h1>to review</h1>

@@ -1,13 +1,8 @@
-/**
- * This is a placeholder for navigation.
- * You can integrate it with router of your choice.
- */
-import React, { useContext } from "react";
 import { Link } from "react-router";
-import ReviewContext from "../context/ReviewContext";
+
+import ReviewCounter from "./ReviewCounter";
 
 export default function Nav() {
-  const { reviewItems } = useContext(ReviewContext);
   return (
     <nav>
       <div className="logo">reviewer</div>
@@ -16,8 +11,7 @@ export default function Nav() {
           Report
         </Link>
         <Link to="/pending" className="nav-link">
-          Pending ({reviewItems.filter((rI) => !rI.isReviewed).length} /
-          {reviewItems.length})
+          Pending <ReviewCounter />
         </Link>
         <Link to="/review" className="nav-link">
           Review
