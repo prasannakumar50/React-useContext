@@ -5,6 +5,7 @@ import { Reporting } from "./pages/Reporting";
 import { Pending } from "./pages/Pending";
 import ReviewContext from "./context/ReviewContext";
 import { useState } from "react";
+import Review from "./pages/Review";
 
 export default function App() {
   const initialReviewItems = [
@@ -38,29 +39,13 @@ export default function App() {
   }
 
   return (
-    <ReviewContext.Provider value={{ initialItems: reviewItems }}>
-      <h1>review</h1>
-      <p>isReviewd: {reviewItems.filter((rI) => rI.isReviewed).length}</p>
-      <div>
-        <ul>
-          {reviewItems.map((reviewItem) => (
-            <li
-              style={{
-                textDecoration: reviewItem.isReviewed ? "line-through" : "none",
-              }}
-              onClick={() => toggleReviewItem(reviewItem.url)}
-            >
-              {reviewItem.url}
-            </li>
-          ))}
-        </ul>
-      </div>
-
+    <ReviewContext.Provider value={{ reviewItems, toggleReviewItem }}>
       <Router>
         <Nav />
         <Routes>
           <Route path="/" element={<Reporting />} />
           <Route path="/pending" element={<Pending />} />
+          <Route path="/review" element={<Review />} />
         </Routes>
       </Router>
     </ReviewContext.Provider>

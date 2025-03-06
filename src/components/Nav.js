@@ -7,7 +7,7 @@ import { Link } from "react-router";
 import ReviewContext from "../context/ReviewContext";
 
 export default function Nav() {
-  const { initialItems } = useContext(ReviewContext);
+  const { reviewItems } = useContext(ReviewContext);
   return (
     <nav>
       <div className="logo">reviewer</div>
@@ -16,8 +16,11 @@ export default function Nav() {
           Report
         </Link>
         <Link to="/pending" className="nav-link">
-          Pending ({initialItems.filter((rI) => !rI.isReviewed).length} /
-          {initialItems.length})
+          Pending ({reviewItems.filter((rI) => !rI.isReviewed).length} /
+          {reviewItems.length})
+        </Link>
+        <Link to="/review" className="nav-link">
+          Review
         </Link>
         {/* Your routes can go here */}
       </div>
